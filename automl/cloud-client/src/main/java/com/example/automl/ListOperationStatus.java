@@ -45,23 +45,16 @@ class ListOperationStatus {
       for (Operation operation :
           client.getOperationsClient().listOperations(listrequest).iterateAll()) {
         System.out.println("Operation details:");
-        System.out.format("\tName: %s\n", operation.getName());
-        System.out.println("\tMetadata:");
-        System.out.format("\t\tType Url: %s\n", operation.getMetadata().getTypeUrl());
-        System.out.format(
-            "\t\tValue: %s\n", operation.getMetadata().getValue().toStringUtf8().replace("\n", ""));
-        System.out.format("\tDone: %s\n", operation.getDone());
+        System.out.format("Name: %s\n", operation.getName());
+        System.out.format("Metadata Type Url: %s\n", operation.getMetadata().getTypeUrl());
+        System.out.format("Done: %s\n", operation.getDone());
         if (operation.hasResponse()) {
-          System.out.println("\tResponse:");
-          System.out.format("\t\tType Url: %s\n", operation.getResponse().getTypeUrl());
-          System.out.format(
-              "\t\tValue: %s\n\n",
-              operation.getResponse().getValue().toStringUtf8().replace("\n", ""));
+          System.out.format("Response Type Url: %s\n", operation.getResponse().getTypeUrl());
         }
         if (operation.hasError()) {
-          System.out.println("\tResponse:");
-          System.out.format("\t\tError code: %s\n", operation.getError().getCode());
-          System.out.format("\t\tError message: %s\n\n", operation.getError().getMessage());
+          System.out.println("Error:");
+          System.out.format("\tError code: %s\n", operation.getError().getCode());
+          System.out.format("\tError message: %s\n\n", operation.getError().getMessage());
         }
       }
     } catch (IOException e) {

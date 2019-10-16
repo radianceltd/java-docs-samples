@@ -69,11 +69,7 @@ public class TranslateDatasetManagementIT {
 
     // Assert
     String got = bout.toString();
-    datasetId =
-        bout.toString()
-            .split("\n")[0]
-            .split("/")[(bout.toString().split("\n")[0]).split("/").length - 1];
-    assertThat(got).contains("Dataset id:");
+    datasetId = got.split("Dataset id: ")[1].split("\n")[0];
 
     // Act
     ImportDataset.importDataset(PROJECT_ID, datasetId, BUCKET + "/en-ja-short.csv");

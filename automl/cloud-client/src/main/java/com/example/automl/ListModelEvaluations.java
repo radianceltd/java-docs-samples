@@ -16,7 +16,7 @@
 
 package com.example.automl;
 
-// [START automl_list_model_evaluation]
+// [START automl_list_model_evaluations]
 import com.google.cloud.automl.v1.AutoMlClient;
 import com.google.cloud.automl.v1.ListModelEvaluationsRequest;
 import com.google.cloud.automl.v1.ModelEvaluation;
@@ -60,4 +60,4 @@ class ListModelEvaluations {
     }
   }
 }
-// [END automl_list_model_evaluation]
+// [END automl_list_model_evaluations]
